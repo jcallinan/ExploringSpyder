@@ -1,29 +1,50 @@
-def calculate_sum(numbers):
+"""
+This script contains a function with a more complex bug, designed for debugging practice.
+"""
+
+def process_data(data):
     """
-    Calculates the sum of a list of numbers.  This version has a bug!
+    Processes a list of numerical data.
+    This version contains a bug!
     """
-    sum_so_far = 0  # Changed from sum to sum_so_far
-    for number in numbers:
-        sum_so_far += number
-    return sum_so_far
+    results = []
+    for i in range(len(data)):
+        value = data[i]
+        if value > 0:
+            result = value * 2
+        elif value < 0:
+            result = value / 2
+        #  Missing case: what if value is 0?
+        results.append(result)  # Bug: result might not be defined
+
+    return results
+
+def calculate_average(numbers):
+    """
+    Calculates the average of a list of numbers.
+    """
+    if not numbers:
+        return 0  # Handle empty list case
+    total = sum(numbers)
+    average = total / len(numbers)
+    return average
+
 
 def main():
     """
-    Main function to demonstrate the calculate_sum function with a bug.
+    Main function to demonstrate the process_data function with a bug
+    and the calculate_average function.
     """
-    data = [1, 2, 3, 4, 5]
-    expected_sum = sum(data) # Use the built-in sum() for comparison
-    actual_sum = calculate_sum(data)
+    test_data = [10, -5, 0, 20, -10, 5, 0, 15]
+    print(f"Original Data: {test_data}")
 
-    print(f"Data: {data}")
-    print(f"Expected Sum: {expected_sum}")
-    print(f"Actual Sum: {actual_sum}")
+    processed_results = process_data(test_data)
+    print(f"Processed Data: {processed_results}")
 
-    if actual_sum != expected_sum:
-        print("Error: The calculate_sum function has a bug!")
-    else:
-        print("The calculate_sum function works correctly.")
+    average_result = calculate_average(processed_results)
+    print(f"Average of Processed Data: {average_result}")
+
+
 
 if __name__ == "__main__":
     main()
-
