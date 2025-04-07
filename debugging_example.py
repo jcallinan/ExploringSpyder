@@ -1,5 +1,3 @@
-
-
 def calculate_sum(numbers):
     """
     Calculates the sum of a list of numbers.  This version has a bug!

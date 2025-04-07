@@ -1,6 +1,5 @@
 # ExporingSpyder
 # Spyder IDE for Students: A Beginner's Guide
-# Spyder IDE for New Students: A Beginner's Guide
 
 ## Introduction
 
